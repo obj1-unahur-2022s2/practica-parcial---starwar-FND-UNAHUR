@@ -1,0 +1,121 @@
+import personas.*
+import planeta.*
+describe "Tests de Personas" {
+	const julieta = new Persona (edad = 42)
+	const ana = new Atleta (edad = 25)
+    const rosa = new Atleta (edad = 45, cantidadTecnicas = 8)
+	const perla = new Atleta (edad = 28, cantidadTecnicas = 8, masaMuscular = 6)
+	const monica = new Docente (edad = 45, cantidadCursos = 6)
+	const luisa = new Docente (edad = 35, cantidadCursos = 1)
+	const triton = new Planeta (habitantes = #{ana,rosa,monica,julieta,monica}, cantidadMuseos = 0)
+	test "julieta tiene de edad 42" {
+
+		assert.equals(42, julieta.edad())
+	}
+	test "La inteligencia de julieta es de 8" {
+
+		assert.equals(8, julieta.inteligencia())
+	}
+	test "La potencia de julieta es 20" {
+		assert.equals (20, julieta.potencia())
+	}
+	test "ana tiene de edad 25" {
+
+		assert.equals(25, ana.edad())
+	}
+	test "La inteligencia de ana es de 12" {
+
+		assert.equals(12, ana.inteligencia())
+	}
+	test "La potencia de ana es 28" {
+		assert.equals (28, ana.potencia())
+	}
+	test "ana es una persona destacada" {
+		assert.that(ana.esDestacada())
+	}
+	test "rosa tiene de edad 25" {
+
+		assert.equals(45, rosa.edad())
+	}
+	test "La inteligencia de rosa es de 8" {
+
+		assert.equals(8, rosa.inteligencia())
+	}
+	test "La potencia de rosa es 52" {
+		assert.equals (52, ana.potencia())
+	}
+	test "rosa es una persona destacada" {
+		assert.that(rosa.esDestacada())
+	}
+	test "rosa sabe 8 tecnicas" {
+		assert.equals(8, rosa.cantidadTecnicas())
+	}
+	test "perla tiene de edad 28" {
+
+		assert.equals(28, perla.edad())
+	}
+	test "La inteligencia de perla es de 12" {
+
+		assert.equals(12, perla.inteligencia())
+	}
+	test "La potencia de perla es 44" {
+		assert.equals (44, perla.potencia())
+	}
+	test "perla es no una persona destacada" {
+		assert.notThat(perla.esDestacada())
+	}
+	test "perla sabe 4 tecnicas" {
+		assert.equals(4, perla.cantidadTecnicas())
+	}
+	test "perla tiene una masa muscular de 6" {
+		assert.equals(6, perla.masaMuscular())
+	}
+	test "monica tiene de edad 45" {
+
+		assert.equals(45, monica.edad())
+	}
+	test "La inteligencia de monica es de 20" {
+
+		assert.equals(20, monica.inteligencia())
+	}
+	test "La potencia de monica es 20" {
+		assert.equals (20, monica.potencia())
+	}
+	test "monica es una persona destacada" {
+		assert.that(monica.esDestacada())
+	}
+	test "monica dio 6 cursos" {
+		assert.equals(6, monica.cantidadCursos())
+	}
+	test "luisa tiene de edad 35" {
+
+		assert.equals(35, luisa.edad())
+	}
+	test "La inteligencia de luisa es de 20" {
+
+		assert.equals(14, luisa.inteligencia())
+	}
+	test "La potencia de luisa es 20" {
+		assert.equals (20, ana.potencia())
+	}
+	test "luisa no es una persona destacada" {
+		assert.notThat(luisa.esDestacada())
+	}
+	test "luisa dio 1 solo curso" {
+		assert.equals(1, luisa.cantidadCursos())
+	}
+	test "la delegacion esta formada por A,R,M"
+	{
+		assert.equals(#{ana,rosa,monica}, triton.delegacionDiplomatica())
+	}
+	test "el valor inicial de la defensa no es 2" 
+	{
+		assert.equals(2, triton.valorInicialDefensa())
+	}
+	test "Triton no es un planeta culto" {
+		assert.notThat(triton.esCulto())
+	}
+	test "La potencia real es de 184" {
+		assert.equals(184, triton.potenciaReal())
+	}
+}

@@ -1,0 +1,41 @@
+import personas.*
+import planeta.*
+describe "Tests de Personas" {
+	const perla = new Atleta (edad = 28, cantidadTecnicas = 8, masaMuscular = 6)
+	
+	test "perla tiene de edad 28" {
+
+		assert.equals(28, perla.edad())
+	}
+	test "La inteligencia de perla es de 12" {
+
+		assert.equals(12, perla.inteligencia())
+	}
+	test "La potencia de perla es 44" {
+		assert.equals (44, perla.potencia())
+	}
+	test "perla es no una persona destacada" {
+		assert.notThat(perla.esDestacada())
+	}
+	test "perla sabe 4 tecnicas" {
+		assert.equals(4, perla.cantidadTecnicas())
+	}
+	test "perla tiene una masa muscular de 6" {
+		assert.equals(6, perla.masaMuscular())
+	}
+	test "la potencia de perla es 65 y no es destacada" {
+		perla.entrenar(15)
+		perla.aprenderTecnica()
+		
+		assert.equals(65, perla.potencia())
+		assert.notThat(perla.esDestacada())
+	}
+		test "la potencia de perla es 65 y es destacada" {
+		perla.entrenar(15)
+		perla.aprenderTecnica()
+		perla.aprenderTecnica()
+		
+		assert.equals(65, perla.potencia())
+		assert.notThat(perla.esDestacada())
+		}
+}
